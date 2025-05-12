@@ -1,0 +1,41 @@
+@use '../abstracts/variables' as vars;
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: vars.$colorBg;
+  padding: 1em;
+  z-index: 1;
+
+  &__branding {
+    max-width: 240px;
+    background-color: vars.$colorPrimary;
+
+  }
+
+  &__container {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__nav {
+    &__list {
+      display: flex;
+      gap: 1em;
+    }
+
+    &__link{
+      padding: 6px 16px;
+      border-radius: 4px;
+    }
+
+    &__item {
+      border-bottom: 2px solid vars.$colorPlay;
+      padding-bottom: 4px;
+    }
+  }
+}
+

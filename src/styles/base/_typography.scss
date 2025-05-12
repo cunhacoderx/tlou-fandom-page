@@ -1,0 +1,26 @@
+@use '../abstracts/mixins' as mix;
+@use '../abstracts/variables' as vars;
+
+.title {
+  @include mix.title;
+}
+
+.title__big {
+  @include mix.title(32px);
+}
+
+.title__small {
+  @include mix.title(20px);
+}
+
+.text {
+  @include mix.text;
+}
+
+.text__big {
+  @include mix.text(18px);
+}
+
+.text__small {
+  @include mix.text(14px);
+}

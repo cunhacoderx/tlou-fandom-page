@@ -1,0 +1,18 @@
+@use '../abstracts/variables' as vars;
+
+.btn {
+
+  &--secondary {
+    background-color: vars.$colorAlternative;
+    color: vars.$colorBg;
+    &:hover {
+      background-color: vars.$colorSecondary;
+    }
+  }
+
+  &--link {
+    &:hover {
+      background-color: vars.$colorPlay;
+    }
+  }
+}
