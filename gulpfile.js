@@ -73,6 +73,5 @@ exports.images = images;
 exports.watch = watch;
 
 exports.default = gulp.series(
-  gulp.parallel(html, styles, scripts, images),
-  watch
+  gulp.parallel(html, styles, scripts, images)
 );
