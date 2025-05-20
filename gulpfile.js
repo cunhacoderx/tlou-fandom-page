@@ -8,7 +8,7 @@ const imagemin = require('gulp-imagemin');
 // Caminhos da estrutura
 const paths = {
   html: {
-    src: 'public/index.html',
+    src: 'index.html',
     dest: 'dist/'
   },
   styles: {
@@ -59,7 +59,7 @@ function images() {
 }
 
 function watch() {
-  gulp.watch('public/index.html', html);
+  gulp.watch('index.html', html);
   gulp.watch('src/styles/**/*.scss', styles);
   gulp.watch('src/js/main.js', scripts);
   gulp.watch('src/assets/images/*', images);
