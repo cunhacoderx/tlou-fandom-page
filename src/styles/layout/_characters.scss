@@ -1,0 +1,142 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
+
+.characters {
+  background-color: vars.$colorBg;
+  padding-block: 4rem;
+  text-align: center;
+
+  &__container {
+    width: 95%;
+    margin-inline: auto;
+    padding-inline: 2rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__title {
+    @include mix.title(clamp(2rem, 5vw, 3.5rem));
+    color: vars.$colorHeader;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  &__tabs {
+    display: flex;
+    justify-content: center;
+
+    &__btn {
+      @include mix.title(32px);
+      background: none;
+      border: none;
+      text-transform: uppercase;
+      margin: 0 .5rem;
+      padding-bottom: 5px;
+      cursor: pointer;
+
+      &--active {
+        border-bottom: 5px solid vars.$colorAlternative;
+      }
+    }
+  }
+
+  &__list {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    justify-content: center;
+
+    &--active {
+      display: grid;
+    }
+  }
+
+  &__card {
+    background: vars.$colorPrimary;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 1.2rem 2rem rgba(0, 0, 0, 0.5);
+
+      .characters__card-name {
+        color: vars.$colorAlternative;
+      }
+    }
+
+    &-image {
+      width: 100%;
+      height: 300px;
+      max-width: 300px;
+      object-fit: cover;
+      border-radius: 1rem;
+      margin-inline: auto;
+      display: block;
+    }
+
+    &-name {
+      color: vars.$colorSecondary;
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+
+    &-bio {
+      color: vars.$colorBg;
+      text-align: justify;
+      margin-top: 1rem;
+    }
+
+    &-quote {
+      color: vars.$colorGrey;
+      margin-top: 1rem;
+    }
+  }
+
+  // 🔁 RESPONSIVO
+  @media (max-width: 768px) {
+    padding-block: 2rem;
+
+    &__title {
+      font-size: clamp(1rem, 5vw, 3.5rem);
+      padding-bottom: 0.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &__tabs__btn {
+      @include mix.title(16px);
+    }
+
+    &__card {
+      padding: 0.5rem;
+
+      &-image {
+        aspect-ratio: 1 / 1;
+        max-width: clamp(200px, 4vw, 300px);
+        height: auto;
+      }
+
+      &-name {
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+      }
+
+      &-bio,
+      &-quote {
+        font-size: clamp(0.85rem, 2vw, 1rem);
+        padding: 0 2rem;
+      }
+    }
+  }
+}

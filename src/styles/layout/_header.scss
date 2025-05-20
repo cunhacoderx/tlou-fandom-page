@@ -4,18 +4,18 @@
   position: sticky;
   top: 0;
   left: 0;
-  background-color: vars.$colorBg;
+  background-color: vars.$colorHeader;
   padding: 1em;
   z-index: 1;
 
   &__branding {
     max-width: 240px;
-    background-color: vars.$colorPrimary;
+    background-color: vars.$colorSecondary;
 
   }
 
   &__container {
-    padding: 8px;
+    padding: 0.2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,17 +24,40 @@
   &__nav {
     &__list {
       display: flex;
-      gap: 1em;
+      gap: .5rem;
     }
 
     &__link{
-      padding: 6px 16px;
-      border-radius: 4px;
+      padding: 0.5rem 1rem ;
+      color: vars.$colorSecondary;
+      background-color: vars.$colorHeader;
+      border-radius: 1rem;
     }
+  }
 
-    &__item {
-      border-bottom: 2px solid vars.$colorPlay;
-      padding-bottom: 4px;
+  @media (max-width: 768px) {
+    &__branding {
+      max-width: 100px;
+      background-color: vars.$colorSecondary;
+    }
+    &__container {
+      padding: 0.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__nav {
+      &__list {
+        display: flex;
+        gap: .5rem;
+      }
+
+      &__link{
+        padding: 0.2rem .5rem ;
+        color: vars.$colorSecondary;
+        background-color: vars.$colorHeader;
+        border-radius: .5rem;
+      }
     }
   }
 }

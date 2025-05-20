@@ -1,0 +1,128 @@
+@use '../abstracts/variables' as vars;
+
+.ways {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-block: clamp(2em, 5vw, 4em);
+  text-align: center;
+  height: 100%;
+  background-color: vars.$colorHeader;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url('../../../dist/images/fireflies_street.png');
+    object-fit: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.35;
+  }
+
+  &__container {
+    max-width: 1080px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__title {
+    color: vars.$colorSecondary;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+
+  &__logo {
+    position: absolute;
+    right: 4em;
+    bottom: 4em;
+    max-width: 24em;
+    filter: brightness(100%) saturate(0%);
+    opacity: 15%;
+  }
+
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 0;
+
+    .title {
+      text-transform: uppercase;
+      font-size: 2rem;
+      padding-bottom: 1rem;
+      color: vars.$colorSecondary;
+    }
+
+    .text {
+      text-align: justify;
+      font-size: 1.1rem;
+      line-height: 1.5rem;
+      color: vars.$colorBg;
+    }
+
+    &__image {
+      max-width: 600px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 1em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding-block: clamp(2em, 5vw, 4em);
+    height: 100%;
+    &__container {
+      width: 95%;
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    &__logo {
+      display: none;
+    }
+
+    &__block {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &:first-of-type {
+        flex-direction: column-reverse;
+      }
+
+      .title {
+        font-size: clamp(1rem, 5vw, 3.5rem);
+        color: vars.$colorSecondary;
+        font-weight: 400;
+        margin-bottom: 0.2rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        display: inline-block;
+        padding-bottom: 0.2rem;
+      }
+
+      .text {
+        text-align: justify;
+        font-size: 0.85rem;
+        line-height: 1rem;
+        color: vars.$colorBg;
+      }
+
+      &__image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 1em;
+      }
+    }
+  }
+
+}

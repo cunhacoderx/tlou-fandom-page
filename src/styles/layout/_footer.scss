@@ -1,0 +1,85 @@
+@use '../abstracts/variables' as vars;
+
+.footer {
+  background-color: vars.$colorHeader;
+  color: vars.$colorSecondary;
+  padding: 2em 1em;
+  text-align: center;
+
+  &__container {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-image {
+      max-width: 360px;
+      width: 100%;
+      margin-bottom: 1rem;
+      filter: brightness(0.8) contrast(1.2);
+    }
+
+    &-quote {
+      font-size: 1rem;
+      font-style: italic;
+      color: #ccc;
+      margin: 0 auto 1rem;
+      max-width: 600px;
+    }
+  }
+
+  &__brands {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    width: 75%;
+
+    &-credits {
+      font-size: 0.9rem;
+      color: #888;
+      line-height: 1.4;
+      text-align: center;
+
+      strong {
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+
+    &--logo-naughty {
+      width: 180px;
+      object-fit: contain;
+      background-color: vars.$colorSecondary;
+    }
+
+    &--logo-pegi {
+      height: 40px;
+    }
+  }
+
+  // 🔁 Responsivo
+  @media (max-width: 768px) {
+    &__brands {
+      flex-direction: column;
+      justify-content: center;
+
+      &--logo-pegi {
+        height: 40px;
+      }
+    }
+
+    &__center-image {
+      max-width: 280px;
+    }
+  }
+}

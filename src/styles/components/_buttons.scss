@@ -4,9 +4,9 @@
 
   &--secondary {
     background-color: vars.$colorAlternative;
-    color: vars.$colorBg;
+    color: vars.$colorPrimary;
     &:hover {
-      background-color: vars.$colorSecondary;
+      background-color: lighten(vars.$colorAlternative, 5%);
     }
   }
 

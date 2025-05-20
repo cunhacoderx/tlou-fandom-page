@@ -1,0 +1,81 @@
+@use '../abstracts/variables' as vars;
+
+.story {
+  height: 100%;
+  background-color: vars.$colorPrimary;
+  padding: 6rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &__logo{
+    position: absolute;
+    left: 4em;
+    max-width: 24em;
+    filter: brightness(1%) invert(15%);
+  }
+
+  &__container {
+    max-width: 1080px;
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: vars.$colorSecondary;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+
+  &__text {
+    margin-bottom: 1rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.5;
+    color: vars.$colorSecondary;
+    text-align: justify;
+    text-wrap: pretty;
+  }
+
+  &__image{
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border: none;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 2rem;
+    &__logo{
+      position: absolute;
+      top: 1em;
+      left: 9em;
+      max-width: clamp(12rem, 2.5vw, 24rem);
+      filter: brightness(1%) invert(15%);
+    }
+    &__title {
+      font-size: clamp(1rem, 5vw, 3.5rem);
+      color: vars.$colorSecondary;
+      font-weight: 400;
+      margin-bottom: .5rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-block;
+      padding-bottom: .5rem;
+    }
+    &__text {
+      margin-bottom: 1rem;
+      font-size: clamp(.5rem, 2.5vw, 1.2rem);
+      line-height: 1.5;
+      color: vars.$colorSecondary;
+      text-align: justify;
+      text-wrap: pretty;
+    }
+  }
+}

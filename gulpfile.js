@@ -1,8 +1,7 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
-/*const cleanCSS = require('gulp-clean-css');
 const htmlmin = require('gulp-htmlmin');
-const uglify = require('gulp-uglify');*/
+const uglify = require('gulp-uglify');
 const sourcemaps = require('gulp-sourcemaps');
 const imagemin = require('gulp-imagemin');
 
@@ -27,12 +26,12 @@ const paths = {
 };
 
 //Tarefas
-/*function html() {
+function html() {
   return gulp
     .src(paths.html.src)
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest(paths.html.dest));
-}*/
+}
 
 function styles() {
   return gulp
@@ -43,14 +42,14 @@ function styles() {
     .pipe(gulp.dest(paths.styles.dest));
 }
 
-/*function scripts() {
+function scripts() {
   return gulp
     .src(paths.scripts.src)
     .pipe(sourcemaps.init())
     .pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.scripts.dest));
-}*/
+}
 
 function images() {
   return gulp
@@ -60,20 +59,20 @@ function images() {
 }
 
 function watch() {
-  /*gulp.watch('public/index.html', html);*/
+  gulp.watch('public/index.html', html);
   gulp.watch('src/styles/**/*.scss', styles);
-  /*gulp.watch('src/js/main.js', scripts);*/
+  gulp.watch('src/js/main.js', scripts);
   gulp.watch('src/assets/images/*', images);
 }
 
 //Exports
-/*exports.html = html;*/
+exports.html = html;
 exports.styles = styles;
-/*exports.scripts = scripts;*/
+exports.scripts = scripts;
 exports.images = images;
 exports.watch = watch;
 
 exports.default = gulp.series(
-  gulp.parallel(styles, images),
+  gulp.parallel(html, styles, scripts, images),
   watch
 );
